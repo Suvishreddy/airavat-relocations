@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <title>Airavat Relocations - Home</title>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
 </head>
 <body>
   <!-- header.html -->
@@ -12,7 +15,7 @@
     <div style="display: flex; align-items: center; margin-left: 20px;">
       <img src="images/Airavat_logo.png" alt="Airavat Logo" style="height: 200px; margin-right: 10px;" />
     </div>
-<h1 style="margin-left: 70px;">Airavat Relocations</h1>
+<h1 style="margin-left: 200px;">Airavat Relocations</h1>
     <ul style="list-style: none; display: flex; gap: 20px; margin-right: 20px;">
       <li><a href="index.html" style="color: white; text-decoration: none;">Home</a></li>
       <li style="position: relative;">
@@ -37,6 +40,48 @@
   navItem.addEventListener("mouseenter", () => dropdown.style.display = "block");
   navItem.addEventListener("mouseleave", () => dropdown.style.display = "none");
 </script>
+<!-- Carousel Section -->
+<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+
+    <!-- Slide 1 -->
+    <div class="carousel-item active">
+      <img src="https://images.unsplash.com/photo-1606046604972-77b3c0d9cf2a" class="d-block w-100" alt="Packing and Moving" style="height: 500px; object-fit: cover;">
+      <div class="carousel-caption d-none d-md-block">
+        <h2 style="color: orange; font-weight: bold; text-shadow: 2px 2px 5px #000;">Reliable & Safe Relocation</h2>
+        <p style="color: white;">From Chennai to Hyderabad, Vizag, Vijayawada and more – We move your world!</p>
+      </div>
+    </div>
+
+    <!-- Slide 2 -->
+    <div class="carousel-item">
+      <img src="https://images.unsplash.com/photo-1618221036343-74b8ebd86891" class="d-block w-100" alt="Household Shifting" style="height: 500px; object-fit: cover;">
+      <div class="carousel-caption d-none d-md-block">
+        <h2 style="color: orange; font-weight: bold; text-shadow: 2px 2px 5px #000;">Door-to-Door Service</h2>
+        <p style="color: white;">We offer seamless packing, loading, and delivery – on time, every time.</p>
+      </div>
+    </div>
+
+    <!-- Slide 3 -->
+    <div class="carousel-item">
+      <img src="https://images.unsplash.com/photo-1620055118301-65fd792c2491" class="d-block w-100" alt="Car Transport" style="height: 500px; object-fit: cover;">
+      <div class="carousel-caption d-none d-md-block">
+        <h2 style="color: orange; font-weight: bold; text-shadow: 2px 2px 5px #000;">Car & Bike Transportation</h2>
+        <p style="color: white;">Safe vehicle shifting with fully enclosed carriers & live tracking.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Controls -->
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+  </button>
+</div>
+
 
   <main style="padding: 20px;">
     <h1>Welcome to Airavat Relocations – Your Trusted Moving Partner</h1>
@@ -77,37 +122,54 @@
     <strong>Chennai, Hyderabad, Bangalore, Mumbai, Pune, Delhi, Gurgoan,Lucknow,Varanasi,Nagpur,Bhubaneshwar,Balasore,Cuttack,Puri,Khordha,Sambalpur,Balangir,Paradeep,Guwahati,Siliguri,Indore,Warangal,Karimnagar,Nalgonda,Vikarabad,Siddipet, Sullurupeta,Nellore,Tada,Vijayawada,Vizag,Amaravathi,Guntur,Kakinada,Srikakulam,Rajamundry,Ongole, Anakapalle, Coimbatore,Madurai,Trichy,Salem,Erode,Krishnagiri,Hosur,Vellore,Nagercoil,Rajyapalayam,Kochi,Trivandrum,Kollam,Ernakulam,Kozhikode,Calicut,Thrissur,Pollachi, Vizag, Kolkata, </strong>, and many more.
   </p>
 
-    <h2 class="section-title">House Shifting Charges</h2>
-    <h4>Local House Shifting Charges</h4>
-    <table class="table table-bordered">
-      <thead>
-        <tr><th>Shifting Type</th><th>Up to 30Km</th></tr>
-      </thead>
-      <tbody>
-        <tr><td>1 RK</td><td>Rs 6,000 – 8,000</td></tr>
-        <tr><td>1 BHK</td><td>Rs 10,000 – 12,000</td></tr>
-        <tr><td>2 BHK</td><td>Rs 13,000 – 15,000</td></tr>
-        <tr><td>3 BHK</td><td>Rs 16,000 – 18,000</td></tr>
-        <tr><td>4 BHK</td><td>Rs 20,000 – 25,000</td></tr>
-      </tbody>
-    </table>
+    <<section style="padding: 40px 20px; background-color: #111;">
+  <h2 class="section-title" style="text-align: center; color: orange; margin-bottom: 30px;">House Shifting Charges</h2>
 
-    <h4>Domestic House Shifting Charges</h4>
-    <table class="table table-bordered">
+  <div style="overflow-x: auto;">
+    <table style="width: 100%; border-collapse: collapse; background-color: #000; color: orange; font-family: sans-serif;">
       <thead>
-        <tr>
-          <th>Shifting Type</th>
-          <th>Up to 400 Km</th>
-          <th>400 – 800 Km</th>
-          <th>800 – 1300 Km</th>
-          <th>1300 – 1900 Km</th>
+        <tr style="border-bottom: 2px solid orange;">
+          <th style="padding: 12px; text-align: left;">Shifting Type</th>
+          <th style="padding: 12px; text-align: center;">Within City</th>
+          <th style="padding: 12px; text-align: center;">Up to 350 KM</th>
+          <th style="padding: 12px; text-align: center;">350 - 750 KM</th>
+          <th style="padding: 12px; text-align: center;">750+ KM</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>1 BHK</td><td>6,000 – 15,000</td><td>9,000 – 20,000</td><td>10,000 – 22,000</td><td>11,000 – 24,000</td></tr>
-        <tr><td>2 BHK</td><td>8,000 – 18,000</td><td>10,000 – 25,000</td><td>12,000 – 24,000</td><td>14,000 – 28,000</td></tr>
-        <tr><td>3 BHK</td><td>10,000 – 25,000</td><td>11,000 – 30,000</td><td>13,000 – 28,000</td><td>16,000 – 34,000</td></tr>
+        <tr style="border-bottom: 1px solid #444;">
+          <td style="padding: 12px;">1 BHK</td>
+          <td style="padding: 12px; text-align: center;">₹3,000 - ₹6,000</td>
+          <td style="padding: 12px; text-align: center;">₹6,000 - ₹12,000</td>
+          <td style="padding: 12px; text-align: center;">₹9,000 - ₹18,000</td>
+          <td style="padding: 12px; text-align: center;">₹12,000 - ₹22,000</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #444;">
+          <td style="padding: 12px;">2 BHK</td>
+          <td style="padding: 12px; text-align: center;">₹4,500 - ₹9,000</td>
+          <td style="padding: 12px; text-align: center;">₹8,000 - ₹16,000</td>
+          <td style="padding: 12px; text-align: center;">₹12,000 - ₹22,000</td>
+          <td style="padding: 12px; text-align: center;">₹16,000 - ₹28,000</td>
+        </tr>
+        <tr style="border-bottom: 1px solid #444;">
+          <td style="padding: 12px;">3 BHK</td>
+          <td style="padding: 12px; text-align: center;">₹6,000 - ₹12,000</td>
+          <td style="padding: 12px; text-align: center;">₹10,000 - ₹20,000</td>
+          <td style="padding: 12px; text-align: center;">₹15,000 - ₹28,000</td>
+          <td style="padding: 12px; text-align: center;">₹20,000 - ₹35,000</td>
+        </tr>
+        <tr>
+          <td style="padding: 12px;">4+ BHK / Villa</td>
+          <td style="padding: 12px; text-align: center;">₹8,000 - ₹16,000</td>
+          <td style="padding: 12px; text-align: center;">₹12,000 - ₹24,000</td>
+          <td style="padding: 12px; text-align: center;">₹18,000 - ₹36,000</td>
+          <td style="padding: 12px; text-align: center;">₹25,000 - ₹45,000</td>
+        </tr>
       </tbody>
+    </table>
+  </div>
+</section>
+
  <h4>Final Rates may vary , call and get the final Quote</h4>
     </table>
 <!-- Testimonials Section -->
@@ -263,6 +325,13 @@
       <li><a href="index.html">Packers & Movers Rourkela</a></li>
       <li><a href="index.html">Packers & Movers Rudrapur</a></li>
       <li><a href="index.html">Packers & Movers Secunderabad</a></li>
+      <li><a href="index.html">Packers & Movers Sullurupeta</a></li>
+      <li><a href="index.html">Packers & Movers Naidupeta</a></li>
+      <li><a href="index.html">Packers & Movers Guntur</a></li>
+      <li><a href="index.html">Packers & Movers Tirupati</a></li>
+      <li><a href="index.html">Packers & Movers Vellore</a></li>
+      <li><a href="index.html">Packers & Movers Kochi</a></li>
+      <li><a href="index.html">Packers & Movers Bhubaneshwar</a></li>
       <li><a href="index.html">Packers & Movers Shillong</a></li>
       <li><a href="index.html">Packers & Movers Siliguri</a></li>
       <li><a href="index.html">Packers & Movers Surat</a></li>
@@ -284,6 +353,8 @@
 <footer style="background-color: Orange; color: black; padding: 20px; text-align: center;">
   <p>© 2025 Airavat Relocations Packers & Movers Pvt. Ltd. | All Rights Reserved</p>
 </footer>
+<!-- Bootstrap Bundle JS -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
