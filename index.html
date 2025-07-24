@@ -90,6 +90,99 @@
     <span class="carousel-control-next-icon" aria-hidden="true"></span>
   </button>
 </div>
+<!-- Contact Form Section -->
+<section class="bg-yellow-400 text-black py-12 px-6 md:px-20">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl font-bold mb-6 text-center border-b-4 border-black inline-block">
+      Contact Us for Your Move
+    </h2>
+
+    <!-- Form -->
+    <form id="contactForm" action="https://formspree.io/f/xovldqwb" method="POST" class="space-y-6">
+      <div>
+        <label class="block font-semibold mb-1">Full Name</label>
+        <input type="text" name="name" required class="w-full p-3 border border-black rounded" placeholder="Your name">
+      </div>
+      <div>
+        <label class="block font-semibold mb-1">Shifting From</label>
+        <input type="text" name="shifting_from" required class="w-full p-3 border border-black rounded" placeholder="From location">
+      </div>
+      <div>
+        <label class="block font-semibold mb-1">Shifting To</label>
+        <input type="text" name="shifting_to" required class="w-full p-3 border border-black rounded" placeholder="To location">
+      </div>
+      <div>
+        <label class="block font-semibold mb-1">Phone Number</label>
+        <input type="tel" name="phone" required class="w-full p-3 border border-black rounded" placeholder="Your phone number">
+      </div>
+      <div>
+        <label class="block font-semibold mb-1">Email ID</label>
+        <input type="email" name="email" required class="w-full p-3 border border-black rounded" placeholder="Your email address">
+      </div>
+
+      <!-- Material Type -->
+      <div>
+        <label class="block font-semibold mb-2">Material Type</label>
+        <div class="grid grid-cols-2 gap-2">
+          <label><input type="checkbox" name="material[]" value="1BHK" class="mr-2">1BHK</label>
+          <label><input type="checkbox" name="material[]" value="2BHK" class="mr-2">2BHK</label>
+          <label><input type="checkbox" name="material[]" value="3BHK" class="mr-2">3BHK</label>
+          <label><input type="checkbox" name="material[]" value="Duplex" class="mr-2">Duplex</label>
+          <label><input type="checkbox" name="material[]" value="Car" class="mr-2">Car</label>
+          <label><input type="checkbox" name="material[]" value="Bike" class="mr-2">Bike</label>
+          <label><input type="checkbox" name="material[]" value="Single Item" class="mr-2">Single Item</label>
+        </div>
+      </div>
+
+      <div>
+        <label class="block font-semibold mb-1">Message</label>
+        <textarea name="message" rows="4" class="w-full p-3 border border-black rounded" placeholder="Your message"></textarea>
+      </div>
+
+      <!-- Submit -->
+      <div class="text-center">
+        <button type="submit" class="bg-black text-yellow-400 font-bold py-3 px-6 rounded hover:bg-yellow-500 hover:text-black transition">
+          Submit Enquiry
+        </button>
+      </div>
+    </form>
+
+    <!-- Thank You Popup -->
+    <div id="thankYouMsg" class="hidden mt-10 bg-green-100 border border-green-600 text-green-800 p-4 rounded text-center font-bold">
+      ✅ Thank you! Your enquiry has been received. We will contact you shortly.
+    </div>
+  </div>
+</section>
+
+<!-- Script for Thank You Message -->
+<script>
+  const form = document.getElementById('contactForm');
+  const thankYou = document.getElementById('thankYouMsg');
+
+  form.addEventListener('submit', async function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const action = form.action;
+
+    try {
+      const response = await fetch(action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if (response.ok) {
+        form.reset();
+        thankYou.classList.remove('hidden');
+      } else {
+        alert("Oops! Something went wrong.");
+      }
+    } catch (error) {
+      alert("Network error. Please try again.");
+    }
+  });
+</script>
 
 
   <main style="padding: 20px;">
