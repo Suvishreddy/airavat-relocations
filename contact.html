@@ -1,8 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Contact Us</title>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Airavat Relocations - Contact Form</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #fff8d1;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .contact-box {
+      max-width: 600px;
+      margin: 50px auto;
+      background: #fdd835;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .checkbox-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .checkbox-group label {
+      font-weight: normal;
+    }
+
+    button {
+      background: black;
+      color: yellow;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 6px;
+      margin-top: 20px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .thank-you {
+      text-align: center;
+      font-weight: bold;
+      color: green;
+      margin-top: 15px;
+    }
+
+    /* WhatsApp Button */
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      text-align: center;
+      font-size: 30px;
+      line-height: 60px;
+      z-index: 1000;
+      text-decoration: none;
+    }
+
+    .whatsapp-button:hover {
+      background-color: #20c253;
+    }
+  </style>
 </head>
 <body>
   <!-- header.html -->
@@ -32,6 +119,86 @@
   const dropdown = navItem.querySelector("ul");
   navItem.addEventListener("mouseenter", () => dropdown.style.display = "block");
   navItem.addEventListener("mouseleave", () => dropdown.style.display = "none");
+</script>
+  
+<div class="contact-box">
+  <h2>Contact Airavat Relocations</h2>
+<form id="contactForm" action="https://formspree.io/f/xovldqwb" method="POST" class="space-y-4">
+    <label>Name:</label>
+    <input type="text" name="name" required>
+
+    <label>Shifting From:</label>
+    <input type="text" name="from" required>
+
+    <label>Shifting To:</label>
+    <input type="text" name="to" required>
+
+    <label>Phone No:</label>
+    <input type="tel" name="phone" required>
+
+    <label>Email ID:</label>
+    <input type="email" name="email" required>
+
+    <label>Material Type:</label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="material" value="1BHK"> 1BHK</label>
+      <label><input type="checkbox" name="material" value="2BHK"> 2BHK</label>
+      <label><input type="checkbox" name="material" value="3BHK"> 3BHK</label>
+      <label><input type="checkbox" name="material" value="Duplex"> Duplex</label>
+      <label><input type="checkbox" name="material" value="CAR"> CAR</label>
+      <label><input type="checkbox" name="material" value="Bike"> Bike</label>
+      <label><input type="checkbox" name="material" value="Single Item"> Single Item</label>
+    </div>
+
+    <label>Message:</label>
+    <textarea name="message" rows="4" required></textarea>
+
+    <button type="submit">Submit</button>
+    <div id="thankYou" class="thank-you" style="display: none;">Thanks for contacting us! You’ll get a call soon.</div>
+  </form>
+</div>
+
+<!-- WhatsApp Button -->
+<a class="whatsapp-button" href="https://wa.me/918184928418" target="_blank">💬</a>
+
+<script>
+  const form = document.getElementById('contactForm');
+  const thankYou = document.getElementById('thankYou');
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    const formData = new FormData(form);
+    const materials = Array.from(form.querySelectorAll('input[name="material"]:checked'))
+                          .map(el => el.value)
+                          .join(", ");
+
+    const data = {
+      name: formData.get("name"),
+      from: formData.get("from"),
+      to: formData.get("to"),
+      phone: formData.get("phone"),
+      email: formData.get("email"),
+      material: materials,
+      message: formData.get("message")
+    };
+
+    fetch("YOUR_GOOGLE_SCRIPT_URL_HERE", {
+      method: "POST",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(response => {
+      if (response.ok) {
+        thankYou.style.display = "block";
+        form.reset();
+        setTimeout(() => {
+          thankYou.style.display = "none";
+        }, 4000);
+      }
+    });
+  });
 </script>
 
   <main style="padding: 20px;">
