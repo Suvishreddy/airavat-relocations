@@ -1,43 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Airavat Relocations - Contact Form</title>
+<meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Airavat Relocations</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background: #fff8d1;
+      background-color: #ffeb3b;
       color: #000;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
     }
 
     .contact-box {
       max-width: 600px;
-      margin: 50px auto;
-      background: #fdd835;
+      background-color: #fff59d;
+      margin: 60px auto;
       padding: 30px;
-      border-radius: 12px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
     }
 
-    h2 {
+    .contact-box h2 {
       text-align: center;
-      margin-bottom: 25px;
+      margin-bottom: 20px;
     }
 
-    label {
+    .contact-box label {
       display: block;
       margin-top: 10px;
       font-weight: bold;
     }
 
-    input, textarea {
+    .contact-box input,
+    .contact-box textarea {
       width: 100%;
       padding: 10px;
       margin-top: 5px;
-      border: none;
+      border: 1px solid #ccc;
       border-radius: 5px;
     }
 
@@ -45,28 +46,27 @@
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
+      margin-top: 10px;
     }
 
     .checkbox-group label {
       font-weight: normal;
     }
 
-    button {
-      background: black;
-      color: yellow;
-      padding: 12px 20px;
-      border: none;
-      border-radius: 6px;
+    .contact-box button {
       margin-top: 20px;
-      cursor: pointer;
+      width: 100%;
+      padding: 12px;
+      background-color: #000;
+      color: #ffeb3b;
       font-size: 16px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
 
-    .thank-you {
-      text-align: center;
-      font-weight: bold;
-      color: green;
-      margin-top: 15px;
+    .contact-box button:hover {
+      background-color: #333;
     }
 
     /* WhatsApp Button */
@@ -74,24 +74,27 @@
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background-color: #25d366;
+      background-color: #25D366;
       color: white;
+      border: none;
       border-radius: 50%;
       width: 60px;
       height: 60px;
+      font-size: 28px;
       text-align: center;
-      font-size: 30px;
       line-height: 60px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      cursor: pointer;
       z-index: 1000;
-      text-decoration: none;
     }
 
     .whatsapp-button:hover {
-      background-color: #20c253;
+      background-color: #1ebd5a;
     }
   </style>
 </head>
 <body>
+
   <!-- header.html -->
 <header style="background-color: #002244; padding: 10px 0;">
   <nav style="display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: auto; color: white;">
@@ -121,88 +124,55 @@
   navItem.addEventListener("mouseleave", () => dropdown.style.display = "none");
 </script>
   
-<div class="contact-box">
-  <h2>Contact Airavat Relocations</h2>
-<form id="contactForm" action="https://formspree.io/f/xovldqwb" method="POST" class="space-y-4">
-    <label>Name:</label>
-    <input type="text" name="name" required>
 
-    <label>Shifting From:</label>
-    <input type="text" name="from" required>
-
-    <label>Shifting To:</label>
-    <input type="text" name="to" required>
-
-    <label>Phone No:</label>
-    <input type="tel" name="phone" required>
-
-    <label>Email ID:</label>
-    <input type="email" name="email" required>
-
-    <label>Material Type:</label>
-    <div class="checkbox-group">
-      <label><input type="checkbox" name="material" value="1BHK"> 1BHK</label>
-      <label><input type="checkbox" name="material" value="2BHK"> 2BHK</label>
-      <label><input type="checkbox" name="material" value="3BHK"> 3BHK</label>
-      <label><input type="checkbox" name="material" value="Duplex"> Duplex</label>
-      <label><input type="checkbox" name="material" value="CAR"> CAR</label>
-      <label><input type="checkbox" name="material" value="Bike"> Bike</label>
-      <label><input type="checkbox" name="material" value="Single Item"> Single Item</label>
-    </div>
-
-    <label>Message:</label>
-    <textarea name="message" rows="4" required></textarea>
-
-    <button type="submit">Submit</button>
-    <div id="thankYou" class="thank-you" style="display: none;">Thanks for contacting us! You’ll get a call soon.</div>
-  </form>
-</div>
-
-<!-- WhatsApp Button -->
-<a class="whatsapp-button" href="https://wa.me/918184928418" target="_blank">💬</a>
-
-<script>
-  const form = document.getElementById('contactForm');
-  const thankYou = document.getElementById('thankYou');
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-
-    const formData = new FormData(form);
-    const materials = Array.from(form.querySelectorAll('input[name="material"]:checked'))
-                          .map(el => el.value)
-                          .join(", ");
-
-    const data = {
-      name: formData.get("name"),
-      from: formData.get("from"),
-      to: formData.get("to"),
-      phone: formData.get("phone"),
-      email: formData.get("email"),
-      material: materials,
-      message: formData.get("message")
-    };
-
-    fetch("YOUR_GOOGLE_SCRIPT_URL_HERE", {
-      method: "POST",
-      body: JSON.stringify(data),
-      headers: {
-        "Content-Type": "application/json"
-      }
-    }).then(response => {
-      if (response.ok) {
-        thankYou.style.display = "block";
-        form.reset();
-        setTimeout(() => {
-          thankYou.style.display = "none";
-        }, 4000);
-      }
-    });
-  });
-</script>
 
   
-  <!-- footer.html -->
+  <div class="contact-box">
+    <h2>Contact Airavat Relocations</h2>
+
+    <form action="https://formspree.io/f/xovldqwb" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" name="name" required>
+
+      <label for="from">Shifting From:</label>
+      <input type="text" name="from" required>
+
+      <label for="to">Shifting To:</label>
+      <input type="text" name="to" required>
+
+      <label for="phone">Phone No:</label>
+      <input type="tel" name="phone" required>
+
+      <label for="email">Email ID:</label>
+      <input type="email" name="email" required>
+
+      <label>Material Type:</label>
+      <div class="checkbox-group">
+        <label><input type="checkbox" name="material[]" value="1BHK"> 1BHK</label>
+        <label><input type="checkbox" name="material[]" value="2BHK"> 2BHK</label>
+        <label><input type="checkbox" name="material[]" value="3BHK"> 3BHK</label>
+        <label><input type="checkbox" name="material[]" value="Duplex"> Duplex</label>
+        <label><input type="checkbox" name="material[]" value="CAR"> CAR</label>
+        <label><input type="checkbox" name="material[]" value="Bike"> Bike</label>
+        <label><input type="checkbox" name="material[]" value="Single Item"> Single Item</label>
+      </div>
+
+      <label for="message">Message:</label>
+      <textarea name="message" rows="4" required></textarea>
+
+      <!-- Redirect to thank-you page -->
+      <input type="hidden" name="_next" value="thank-you.html">
+
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+
+  <!-- WhatsApp Chat Button -->
+  <a href="https://wa.me/919999999999" class="whatsapp-button" title="Chat with us" target="_blank">📞</a>
+
+</body>
+
+<!-- footer.html -->
 <footer style="background-color: #000; color: orange; padding: 20px; text-align: center; font-family: sans-serif;">
   <p><strong> Airavat Relocations Packers & Movers </strong></p>
   <p>📍 Address: Plot No. 24, XYZ Colony, Madhapur, Hyderabad - 500081, India</p>
@@ -213,7 +183,5 @@
 
 <p><strong>© 2025 Airavat Relocations Packers & Movers| All Rights Reserved</strong></p>
 </footer>
-
-
-</body>
 </html>
+
